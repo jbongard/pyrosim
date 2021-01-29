@@ -1,8 +1,8 @@
-from ludobots.masssdf         import MASS_SDF
+from pyrosim.masssdf         import MASS_SDF
 
-from ludobots.inertiasdf      import INERTIA_SDF
+from pyrosim.inertiasdf      import INERTIA_SDF
 
-from ludobots.commonFunctions import Save_Whitespace
+from pyrosim.commonFunctions import Save_Whitespace
 
 class INERTIAL_SDF:
 

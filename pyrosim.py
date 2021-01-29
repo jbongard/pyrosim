@@ -1,18 +1,18 @@
 import pybullet as p
 
-from ludobots.nndf import NNDF
+from pyrosim.nndf import NNDF
 
-from ludobots.linksdf  import LINK_SDF
+from pyrosim.linksdf  import LINK_SDF
 
-from ludobots.linkurdf import LINK_URDF
+from pyrosim.linkurdf import LINK_URDF
 
-from ludobots.model import MODEL
+from pyrosim.model import MODEL
 
-from ludobots.sdf   import SDF
+from pyrosim.sdf   import SDF
 
-from ludobots.urdf  import URDF
+from pyrosim.urdf  import URDF
 
-from ludobots.joint import JOINT
+from pyrosim.joint import JOINT
 
 SDF_FILETYPE  = 0
 

@@ -1,4 +1,4 @@
-import ludobots.commonFunctions as commonFunctions
+import pyrosim.commonFunctions as commonFunctions
 
 class MODEL:
 

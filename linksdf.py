@@ -1,12 +1,12 @@
-from ludobots.inertialsdf     import INERTIAL_SDF
+from pyrosim.inertialsdf     import INERTIAL_SDF
 
-from ludobots.geometrysdf     import GEOMETRY_SDF
+from pyrosim.geometrysdf     import GEOMETRY_SDF
 
-from ludobots.collisionsdf    import COLLISION_SDF
+from pyrosim.collisionsdf    import COLLISION_SDF
 
-from ludobots.visualsdf       import VISUAL_SDF
+from pyrosim.visualsdf       import VISUAL_SDF
 
-from ludobots.commonFunctions import Save_Whitespace
+from pyrosim.commonFunctions import Save_Whitespace
 
 class LINK_SDF:
 

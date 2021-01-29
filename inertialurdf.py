@@ -1,8 +1,8 @@
-from ludobots.massurdf    import MASS_URDF
+from pyrosim.massurdf    import MASS_URDF
 
-from ludobots.inertiaurdf import INERTIA_URDF
+from pyrosim.inertiaurdf import INERTIA_URDF
 
-from ludobots.commonFunctions import Save_Whitespace
+from pyrosim.commonFunctions import Save_Whitespace
 
 class INERTIAL_URDF:
 
