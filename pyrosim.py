@@ -60,59 +60,45 @@ def Get_Touch_Sensor_Value_For_Link(linkName):
 
     return touchValue
 
-def Prepare_Link_Dictionary(urdfFileName):
+def Prepare_Link_Dictionary(bodyID):
 
     global linkNamesToIndices
 
     linkNamesToIndices = {}
 
-    linkIndex = -1
+    for jointIndex in range( 0 , p.getNumJoints(bodyID) ):
 
-    f = open(urdfFileName,"r")
+        jointInfo = p.getJointInfo( bodyID , jointIndex )
 
-    for line in f.readlines():
+        jointName = jointInfo[1]
 
-        if "link name" in line:
+        jointName = jointName.decode("utf-8")
 
-            line = line.split('"')
+        jointName = jointName.split("_")
 
-            linkName = line[1]
+        linkName = jointName[1]
 
-            linkNamesToIndices[linkName] = linkIndex
+        linkNamesToIndices[linkName] = jointIndex
 
-            linkIndex = linkIndex + 1
-
-    f.close()
-
-def Prepare_Joint_Dictionary(urdfFileName):
+def Prepare_Joint_Dictionary(bodyID):
 
     global jointNamesToIndices
 
     jointNamesToIndices = {}
 
-    jointIndex = 0
+    for jointIndex in range( 0 , p.getNumJoints(bodyID) ):
 
-    f = open(urdfFileName,"r")
+        jointInfo = p.getJointInfo( bodyID , jointIndex )
 
-    for line in f.readlines():
+        jointName = jointInfo[1]
 
-        if "joint name" in line:
+        jointNamesToIndices[jointName] = jointIndex
 
-            line = line.split('"')
+def Prepare_To_Simulate(bodyID):
 
-            jointName = line[1]
+    Prepare_Link_Dictionary(bodyID)
 
-            jointNamesToIndices[jointName] = jointIndex
-
-            jointIndex = jointIndex + 1
-
-    f.close()
-
-def Prepare_To_Simulate(urdfFileName):
-
-    Prepare_Link_Dictionary(urdfFileName)
-
-    Prepare_Joint_Dictionary(urdfFileName)
+    Prepare_Joint_Dictionary(bodyID)
 
 def Send_Cube(name="default",pos=[0,0,0],size=[1,1,1]):
 
