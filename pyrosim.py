@@ -38,8 +38,6 @@ def End():
 
     f.close()
 
-    print(links)
-
 def End_Model():
 
     model.Save_End_Tag(f)
