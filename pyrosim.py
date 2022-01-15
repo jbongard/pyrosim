@@ -38,6 +38,8 @@ def End():
 
     f.close()
 
+    print(links)
+
 def End_Model():
 
     model.Save_End_Tag(f)
@@ -118,13 +120,19 @@ def Send_Cube(name="default",pos=[0,0,0],size=[1,1,1]):
 
     global availableLinkIndex
 
+    global links
+
     if filetype == SDF_FILETYPE:
 
         Start_Model(name,pos)
 
         link = LINK_SDF(name,pos,size)
+
+        links.append(link)
     else:
         link = LINK_URDF(name,pos,size)
+
+        links.append(link)
 
     link.Save(f)
 
@@ -209,6 +217,10 @@ def Start_SDF(filename):
 
     sdf.Save_Start_Tag(f)
 
+    global links
+
+    links = []
+
 def Start_URDF(filename):
 
     global availableLinkIndex
@@ -232,6 +244,10 @@ def Start_URDF(filename):
     urdf = URDF()
 
     urdf.Save_Start_Tag(f)
+
+    global links
+
+    links = []
 
 def Start_Model(modelName,pos):
 
