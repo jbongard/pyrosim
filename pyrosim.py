@@ -80,6 +80,12 @@ def Prepare_Link_Dictionary(bodyID):
 
         linkNamesToIndices[linkName] = jointIndex
 
+        if jointIndex==0:
+
+           rootLinkName = jointName[0]
+
+           linkNamesToIndices[rootLinkName] = -1 
+
 def Prepare_Joint_Dictionary(bodyID):
 
     global jointNamesToIndices
