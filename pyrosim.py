@@ -116,11 +116,11 @@ def Send_Cube(name="default",pos=[0,0,0],size=[1,1,1]):
 
         Start_Model(name,pos)
 
-        link = LINK_SDF(name,pos,size)
+        link = LINK_SDF("cube",name,pos,size)
 
         links.append(link)
     else:
-        link = LINK_URDF(name,pos,size)
+        link = LINK_URDF("cube",name,pos,size)
 
         links.append(link)
 
@@ -147,6 +147,34 @@ def Send_Motor_Neuron(name,jointName):
 def Send_Sensor_Neuron(name,linkName):
 
     f.write('    <neuron name = "' + str(name) + '" type = "sensor" linkName = "' + linkName + '" />\n')
+
+def Send_Sphere(name="default",pos=[0,0,0],radius=1):
+
+    global availableLinkIndex
+
+    global links
+
+    if filetype == SDF_FILETYPE:
+    
+        Start_Model(name,pos)
+        
+        link = LINK_SDF("sphere",name,pos,radius)
+    
+        links.append(link)
+    else:
+        link = LINK_URDF("sphere",name,pos,radius)
+        
+        links.append(link)
+    
+    link.Save(f)
+
+    if filetype == SDF_FILETYPE:
+    
+        End_Model()
+
+    linkNamesToIndices[name] = availableLinkIndex
+
+    availableLinkIndex = availableLinkIndex + 1
 
 def Send_Synapse( sourceNeuronName , targetNeuronName , weight ):
 
