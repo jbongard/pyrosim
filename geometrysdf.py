@@ -8,7 +8,7 @@ class GEOMETRY_SDF:
 
         self.string1 = '<geometry>'
 
-        if type == 'box':
+        if type == 'cube':
 
             sizeString = str(size[0]) + " " + str(size[1]) + " " + str(size[2])
 
@@ -16,7 +16,7 @@ class GEOMETRY_SDF:
 
             radiusString = str(size)
 
-        if type == 'box':
+        if type == 'cube':
 
             self.string2 = '   <box>'
 
